@@ -1,4 +1,4 @@
-function Home() {
+function Landing() {
     return (
         <>
             <h1 className="home-app-name">Linki</h1>
@@ -13,4 +13,4 @@ function Home() {
     )
 }
 
-export default Home;
+export default Landing;
