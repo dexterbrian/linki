@@ -1,12 +1,12 @@
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import Username from "./Username";
+import Linki from "./Linki";
 
 function Home() {
     const location = useLocation();
-    const [linkTitle, setLinkTitle] = useState('');
-    const [link, setLink] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const [username, setUsername] = useState(location.username);
+    const [username, setUsername] = useState(location.state.username);
 
     function addAnotherLink() {
         console.log('Adding another link');
@@ -25,23 +25,9 @@ function Home() {
             <h1>Hey {username}! 😊</h1>
             <h3>Which link would you like to add today?</h3>
 
-            <div className="username-container">
-                <input type="text" value={username} onChange={(e) => {
-                    setUsername(e.target.value);
-                }}/>
-            </div>
-            <div className="button-container">
-                <button className="secondary-button" onClick={addAnotherLink}>Copy Your Linki</button>
-            </div>
+            <Username username={username} setUsername={setUsername}/>
 
-            <div className="linki-container">
-                <input type="text" placeholder="Enter your Link" value={linkTitle} onChange={(e) => {
-                    setLinkTitle(e.target.value);
-                }}/>
-                <input type="text" placeholder="Enter a Title for your Link" value={link} onChange={(e) => {
-                    setLink(e.target.value);
-                }}/>
-            </div>
+            <Linki />
 
             <div className="button-container">
                 <button className="secondary-button" onClick={addAnotherLink}>+ Enter Another Link</button>
