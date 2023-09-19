@@ -3,6 +3,7 @@ import { useState } from "react";
 import Username from "./Username";
 import Linki from "./Linki";
 import { useNavigate } from "react-router-dom";
+import { nanoid } from 'nanoid';
 
 function Home() {
     const location = useLocation();
@@ -11,9 +12,23 @@ function Home() {
     const [username, setUsername] = useState(location.state.username);
     const [title, setTitle] = useState('');
     const [url, setUrl] = useState('');
+    const [linkis, setLinkis] = useState(
+        [{
+            id: nanoid(),
+            title: '',
+            url: ''
+        }]
+    );
 
     function addAnotherLink() {
-        console.log('Adding another link');
+
+        setLinkis([...linkis, {
+            id: nanoid(),
+            title: '',
+            url: ''
+        }]);
+        
+        console.log('Adding another link', linkis.length);
     }
 
     async function saveLinks() {
@@ -67,7 +82,15 @@ function Home() {
 
             <Username username={username} setUsername={setUsername}/>
 
-            <Linki url={url} setUrl={setUrl} title={title} setTitle={setTitle}/>
+            {
+                linkis.length === 1 ? (
+                    <Linki url={url} setUrl={setUrl} title={title} setTitle={setTitle}/>
+                ) : (
+                    linkis.map((linki) => (
+                        <Linki key={linki.id} url={linki.url} setUrl={setUrl} title={linki.title} setTitle={setTitle}/>
+                    ))
+                )
+            }
 
             <div className="button-container">
                 <button className="secondary-button" onClick={addAnotherLink}>+ Enter Another Link</button>
