@@ -9,13 +9,37 @@ function Home() {
     const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState('');
     const [username, setUsername] = useState(location.state.username);
+    const [title, setTitle] = useState('');
+    const [url, setUrl] = useState('');
 
     function addAnotherLink() {
         console.log('Adding another link');
     }
 
-    function saveLinks() {
+    async function saveLinks() {
         console.log('Saving all links');
+
+        await fetch('http://localhost:3000/links', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                title: title,
+                url: url
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                setErrorMessage(data.error);
+            }
+            console.log('My response: ', data);
+        })
+        .catch(error => {
+            setErrorMessage(error);
+            console.error('Error:', error);
+        });
     }
 
     async function logOutUser() {
@@ -42,7 +66,7 @@ function Home() {
 
             <Username username={username} setUsername={setUsername}/>
 
-            <Linki />
+            <Linki url={url} setUrl={setUrl} title={title} setTitle={setTitle}/>
 
             <div className="button-container">
                 <button className="secondary-button" onClick={addAnotherLink}>+ Enter Another Link</button>
