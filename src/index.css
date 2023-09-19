@@ -81,3 +81,27 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.login-container input {
+  margin-bottom: 10px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+.login-buttons button {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  min-width: 320px;
+}
