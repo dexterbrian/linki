@@ -1,9 +1,8 @@
-import { useState } from 'react'
 import './App.css'
 import Landing from './components/Landing'
 import { Route, Routes } from "react-router-dom";
 import Home from './components/Home';
-import Linki from './components/Linki';
+import LinkiPage from './components/LinkiPage';
 
 function App() {
 
@@ -12,7 +11,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="/home" element={<Home />} />
-      <Route path="/:username" element={<Linki />} />
+      <Route path="/:username" element={<LinkiPage />} />
     </Routes>
     </>
   )
