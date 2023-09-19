@@ -29,7 +29,7 @@ function Landing() {
         .then(data => {
             if (!data.error) {
                 setLoggedInUser(data);
-                navigate('/home', {username: data.username});
+                navigate('/home', {state: data});
             } else {
                 setErrorMessage(data.error);
             }
@@ -101,7 +101,7 @@ function Landing() {
                     <div className="button-container">
                         <button className="primary-button" onClick={createUser}>Sign Up</button>
                     </div>
-                    <div className="button-container"><button className="secondary-button">Login</button></div>
+                    <div className="button-container"><button className="secondary-button" onClick={loginUser}>Login</button></div>
                 </div>
                 <p className="error-messages">{errorMessage}</p>
             </div>
