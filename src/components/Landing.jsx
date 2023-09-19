@@ -39,22 +39,10 @@ function Landing() {
             setErrorMessage(error);
             console.error('Error:', error);
         });
-
-        // if (!response.ok) {
-        //     throw new Error(`HTTP error! Status: ${response.status}`);
-        // }
-
-        // const data = await response.json();
-
-        // if (data) {
-        //     setLoggedInUser(data);
-        //     // history.push('/home');
-        // }
-        // console.log('My response: ', data);
     }
 
     async function createUser() {
-        const response = await fetch('http://localhost:3000/users', {
+        await fetch('http://localhost:3000/users', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -73,19 +61,6 @@ function Landing() {
             setErrorMessage(error);
             console.error('Error:', error);
         });
-
-        // if (!response.ok) {
-        //     throw new Error(`HTTP error! Status: ${response.status}`);
-        // }
-
-        // const data = await response.json();
-        // if (data.username) {
-        //     loginUser();
-        //     console.log('My response: ', data);
-        // } else {
-        //     setErrorMessage(data.error);
-        //     console.error('Error:', data.error);
-        // }
     };
 
     return (
