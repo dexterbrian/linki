@@ -105,3 +105,7 @@ button:focus-visible {
   place-items: center;
   min-width: 320px;
 }
+
+.error-messages {
+  color: red;
+}
