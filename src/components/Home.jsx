@@ -25,6 +25,7 @@ function Home() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
+                username: username,
                 title: title,
                 url: url
             })
