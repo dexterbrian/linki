@@ -2,9 +2,11 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import Username from "./Username";
 import Linki from "./Linki";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
     const location = useLocation();
+    const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState('');
     const [username, setUsername] = useState(location.state.username);
 
@@ -16,8 +18,21 @@ function Home() {
         console.log('Saving all links');
     }
 
-    function logOutUser() {
+    async function logOutUser() {
         console.log('Logging out the user');
+
+        await fetch('http://localhost:3000/logout', {
+            method: 'DELETE'
+        })
+        .then(response => {
+            navigate('/');
+        })
+        .then(data => {
+            console.log('My response: ', data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     }
 
     return (
