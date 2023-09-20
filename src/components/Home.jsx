@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Username from "./Username";
 import EditLinki from "./EditLinki";
 import { useNavigate } from "react-router-dom";
@@ -18,6 +18,15 @@ function Home() {
             title: '',
             url: ''
         }]
+    );
+
+    useEffect(() => {
+        fetch(`http://localhost:3000/users/${username}`, {
+            method: 'GET'
+        })
+          .then((response) => response.json())
+          .then((data) => setLinkis(data.links));
+      }, []
     );
 
     function addAnotherLink() {
