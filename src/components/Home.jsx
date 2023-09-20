@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import Username from "./Username";
-import Linki from "./Linki";
+import EditLinki from "./EditLinki";
 import { useNavigate } from "react-router-dom";
 import { nanoid } from 'nanoid';
 
@@ -84,10 +84,10 @@ function Home() {
 
             {
                 linkis.length === 1 ? (
-                    <Linki url={url} setUrl={setUrl} title={title} setTitle={setTitle}/>
+                    <EditLinki url={url} setUrl={setUrl} title={title} setTitle={setTitle}/>
                 ) : (
                     linkis.map((linki) => (
-                        <Linki key={linki.id} url={linki.url} setUrl={setUrl} title={linki.title} setTitle={setTitle}/>
+                        <EditLinki key={linki.id} url={linki.url} setUrl={setUrl} title={linki.title} setTitle={setTitle}/>
                     ))
                 )
             }

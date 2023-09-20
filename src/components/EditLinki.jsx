@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Linki({ title, setTitle, url, setUrl }) {
+function EditLinki({ title, setTitle, url, setUrl }) {
     return (
         <>
             <div className="linki-container">
@@ -15,4 +15,4 @@ function Linki({ title, setTitle, url, setUrl }) {
     );
 }
 
-export default Linki;
+export default EditLinki;
