@@ -1,5 +1,10 @@
 # Linki - Share Your Links Efficiently
 
+## Author
+
+- Author: Brian Waweru
+
+## Project Description
 Linki is a web application that empowers users to create a personalized landing page, simplifying the process of sharing multiple online links from a single, unified platform.
 
 You can find links to the deployed app here:
@@ -10,6 +15,8 @@ Here's the link to the [Linki API](https://github.com/dexterbrian/linki-api/).
 
 ## Table of Contents
 - [Linki - Share Your Links Efficiently](#linki---share-your-links-efficiently)
+  - [Author](#author)
+  - [Project Description](#project-description)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Key Features](#key-features)
