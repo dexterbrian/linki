@@ -46,6 +46,7 @@ body {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin: 10px;
 }
 
 .primary-button {
@@ -59,6 +60,7 @@ body {
   color: #242424;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin: 10px;
 }
 
 button:hover {
@@ -108,4 +110,14 @@ button:focus-visible {
 
 .error-messages {
   color: red;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Add hover effect */
+a:hover {
+  border-color: #646cff;
 }
